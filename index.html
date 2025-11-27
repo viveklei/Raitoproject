@@ -1,0 +1,1668 @@
+<!--
+  Raito-Opto Electronics Pvt. Ltd. - Official Website
+  
+  This website features:
+  - Animated loader with water-fill effect
+  - Hero banner slider with custom product images
+  - Synchronized product swipers (titles + images)
+  - Dynamic product numbering (01, 02, 03, 04)
+  - News section with tabs and carousel
+  - Sticky header on scroll
+  - Animated number counters
+  - Yellow color theme (#ffcc00)
+  
+  Main Technologies:
+  - Swiper.js for sliders
+  - AOS for scroll animations
+  - Vite for build/dev server
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Raito-Opto Electronics Pvt. Ltd. | Fiber Laser Technology Solutions</title>
+  <meta name="description"
+    content="Raito-Opto Electronics Pvt. Ltd. - Leading provider of fiber laser technology solutions including VLPM laser units, fiber laser sources, and advanced laser systems for industrial applications.">
+  <meta name="keywords"
+    content="fiber laser, laser technology, VLPM laser, fiber laser source, industrial lasers, laser cutting, laser welding, Raito-Opto Electronics">
+  <meta name="author" content="Raito-Opto Electronics Pvt. Ltd.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.raito-opto.com/">
+
+  <!-- Open Graph Meta Tags (for social media sharing) -->
+  <meta property="og:title" content="Raito-Opto Electronics Pvt. Ltd. | Fiber Laser Technology">
+  <meta property="og:description"
+    content="Leading provider of fiber laser technology solutions for industrial applications.">
+  <meta property="og:image" content="https://www.raito-opto.com/logo.jpg">
+  <meta property="og:url" content="https://www.raito-opto.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raito-Opto Electronics Pvt. Ltd.">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Raito-Opto Electronics Pvt. Ltd.">
+  <meta name="twitter:description" content="Leading provider of fiber laser technology solutions.">
+  <meta name="twitter:image" content="https://www.raito-opto.com/logo.jpg">
+
+  <!-- Favicon (add your favicon files) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Stylesheets -->
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="src/common.css">
+  <link rel="stylesheet" href="src/index_raycus_part1.css">
+  <link rel="stylesheet" href="src/index_raycus_part2.css">
+
+  <!-- Responsive Styles - MUST be loaded last -->
+  <link rel="stylesheet" href="src/responsive.css">
+  <link rel="stylesheet" href="src/about-bg.css">
+  <link rel="stylesheet" href="src/news-enhanced.css">
+
+  <!-- CDN Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* Reset & Common */
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+
+    div,
+    img,
+    ul,
+    li,
+    dl,
+    dt,
+    dd,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    p {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    i,
+    em {
+      font-style: normal;
+    }
+
+    img {
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Widths */
+    .w1500 {
+      position: relative;
+      width: 94%;
+      margin: 0 auto;
+      height: 100%;
+      max-width: 1500px;
+    }
+
+    /* Header */
+    .header {
+      z-index: 100;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 110px;
+      background-color: transparent;
+      transition: 0.5s;
+    }
+
+    .header:hover {
+      background-color: #fff;
+    }
+
+    .header.fixed {
+      position: fixed;
+      height: 60px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+
+    /* Logo */
+    .header .logo {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 24px;
+      transition: 0.5s;
+    }
+
+    .header .logo img {
+      display: block;
+      max-width: 200px;
+      max-height: 50px;
+    }
+
+    .header.fixed .logo {
+      top: 10px;
+    }
+
+    /* Loader Styles */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .loader-content {
+      position: relative;
+      width: 300px;
+      height: 150px;
+      /* Adjust based on logo aspect ratio */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #f0f0f0;
+      /* Subtle box outline */
+      background-color: #fff;
+    }
+
+    .loader-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('logo.jpg') no-repeat center center;
+      background-size: contain;
+      z-index: 2;
+      mix-blend-mode: multiply;
+      /* White bg becomes transparent, Black text stays Black */
+      background-color: transparent;
+      filter: grayscale(100%) contrast(200%);
+      /* Ensure Black Logo */
+    }
+
+    .water-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: #ffcc00;
+      /* Yellow */
+      z-index: 1;
+      animation: fillWater 2.5s ease-in-out forwards;
+      overflow: hidden;
+    }
+
+    /* Wave Animation */
+    .water-fill::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      border-radius: 40%;
+      background-color: rgba(255, 255, 255, 0.4);
+      animation: wave 6s linear infinite;
+    }
+
+    .water-fill::after {
+      content: "";
+      position: absolute;
+      top: -55%;
+      left: -45%;
+      width: 200%;
+      height: 200%;
+      border-radius: 43%;
+      background-color: rgba(255, 255, 255, 0.2);
+      animation: wave 8s linear infinite;
+    }
+
+    @keyframes fillWater {
+      0% {
+        height: 0%;
+      }
+
+      100% {
+        height: 100%;
+      }
+    }
+
+    @keyframes wave {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Info Wrap */
+    .header .info-wrap {
+      position: absolute;
+      left: 260px;
+      bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .info-wrap {
+      opacity: 1;
+    }
+
+    .header.fixed .info-wrap {
+      opacity: 0;
+    }
+
+    .header .info-wrap span {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .header .info-wrap span i {
+      color: #004496;
+    }
+
+    /* Lang Select */
+    .header .lang-select {
+      z-index: 1;
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      width: 80px;
+      transform: translateY(-50%);
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .lang-select {
+      opacity: 1;
+    }
+
+    .header.fixed .lang-select {
+      opacity: 1;
+    }
+
+    .header .lang-select:before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      width: 1px;
+      height: 16px;
+      margin-top: -8px;
+      background-color: #33333300;
+    }
+
+    .header .lang-select .name {
+      position: relative;
+      height: 24px;
+      padding: 0 15px 0 20px;
+      line-height: 24px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .header .lang-select .name:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      margin-top: -12px;
+      background-color: #cccccc00;
+    }
+
+    .header .lang-select .name:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid #333;
+      border-bottom: 1px solid #333;
+      transform: rotate(45deg) translate(-50%, -50%);
+    }
+
+    .header .lang-select .list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: 5px 0;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: 0.3s;
+      display: none;
+    }
+
+    .header .lang-select:hover .list {
+      display: block;
+      transform: scaleY(1);
+    }
+
+    .header .lang-select .list li a {
+      display: block;
+      padding: 10px;
+      line-height: 16px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .header .lang-select .list li a:hover {
+      color: #0091db;
+    }
+
+    /* Search Btn */
+    .header .search-btn {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      background-color: #cccccc00;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .search-btn {
+      opacity: 1;
+    }
+
+    .header.fixed .search-btn {
+      opacity: 1;
+    }
+
+    /* Nav Box */
+    .nav-box {
+      position: absolute;
+      left: 260px;
+      top: 0;
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .nav-box {
+      opacity: 1;
+    }
+
+    .header.fixed .nav-box {
+      opacity: 1;
+    }
+
+    .nav-box .nav-1st>li {
+      float: left;
+      padding: 0 18px;
+      line-height: 110px;
+      transition: 0.5s;
+    }
+
+    .nav-box .nav-1st>li>a {
+      position: relative;
+      display: block;
+      font-size: 18px;
+    }
+
+    .nav-box .nav-1st>li>a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 30px;
+      width: 100%;
+      height: 3px;
+      background-color: #0091db;
+      transform: scaleX(0);
+      transition: 0.3s;
+    }
+
+    .nav-box .nav-1st>li:hover>a:after {
+      transform: scaleX(1);
+    }
+
+    .header.fixed .nav-box .nav-1st>li {
+      line-height: 60px;
+    }
+
+    .header.fixed .nav-box .nav-1st>li>a:after {
+      bottom: 12px;
+    }
+
+    /* Nav 2nd */
+    .nav-box .nav-2nd-wrap {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 110px;
+      padding: 40px 0;
+      background-color: #f8f8f8;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-box .nav-1st>li:hover .nav-2nd-wrap {
+      display: block;
+    }
+
+    .header.fixed .nav-box .nav-2nd-wrap {
+      top: 60px;
+    }
+
+    .nav-box .nav-2nd-wrap .title {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .nav-box .nav-2nd-wrap .title .name {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      font-size: 30px;
+      line-height: 30px;
+      color: #fff;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+    }
+
+    .nav-box .nav-2nd {
+      overflow: hidden;
+      position: relative;
+      min-height: 120px;
+      margin: 0 400px 0 22%;
+    }
+
+    .nav-box .nav-2nd:before {
+      content: "";
+      position: absolute;
+      left: 47.5%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    .nav-box .nav-2nd:after {
+      content: "";
+      position: absolute;
+      right: 2.5%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    .nav-box .nav-2nd>li {
+      position: relative;
+      float: left;
+      width: 45%;
+      margin-right: 5%;
+    }
+
+    .nav-box .nav-2nd>li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #fff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.5s;
+    }
+
+    .nav-box .nav-2nd>li>a {
+      position: relative;
+      display: block;
+      padding: 15px 20px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .nav-box .nav-2nd>li>a:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 0;
+      background-color: #0091db;
+      transition: 0.3s;
+    }
+
+    .nav-box .nav-2nd>li>a:after {
+      content: "";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid #666;
+      border-right: 1px solid #666;
+      transform: translate(0, -50%) rotate(45deg);
+    }
+
+    .nav-box .nav-2nd>li:hover:before {
+      transform: scaleX(1);
+    }
+
+    .nav-box .nav-2nd>li:hover>a:before {
+      top: 0;
+      height: 100%;
+    }
+
+    /* Banner */
+    .banner {
+      z-index: 0;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .banner .swiper-slide {
+      display: block;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: none;
+    }
+
+    .banner .banner-text {
+      margin-top: 15%;
+      font-family: Arial;
+      font-size: 60px;
+      text-align: center;
+      font-weight: bold;
+      color: #e4b861;
+    }
+
+    .banner .swiper-pagination {
+      z-index: 1;
+      left: 50%;
+      bottom: 190px;
+      width: auto;
+      font-size: 0;
+      transform: translateX(-50%);
+    }
+
+    .banner .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      margin: 0 10px !important;
+      background-color: #0091db;
+      border-radius: 4px;
+      box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+      opacity: .3;
+      transition: 0.3s;
+    }
+
+    .banner .swiper-pagination-bullet-active {
+      position: relative;
+      background-color: #0091db;
+      opacity: 1;
+    }
+
+    .banner .btn {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 60px;
+      margin-top: -30px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+    }
+
+    .banner .prev-btn {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    .banner .prev-btn:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid #fff;
+      border-left: 2px solid #fff;
+      transform: translate(-30%, -50%) rotate(-45deg);
+    }
+
+    .banner .next-btn {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    .banner .next-btn:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: translate(-70%, -50%) rotate(45deg);
+    }
+
+    .banner .btn:hover {
+      background-color: #0091db;
+      border-color: #0091db;
+    }
+
+    .banner:hover .prev-btn {
+      transform: translateX(20%);
+    }
+
+    .banner:hover .next-btn {
+      transform: translateX(-20%);
+    }
+
+    /* Data Show Box */
+    .data-show-box {
+      padding: 35px 0;
+      font-size: 0;
+      text-align: center;
+    }
+
+    .banner .data-show-box {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, .5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    }
+
+    .data-show-box .item {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+      font-size: 14px;
+    }
+
+    .data-show-box .item:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    .data-show-box .item:first-child:before {
+      display: none;
+    }
+
+    .data-show-box .item .num {
+      display: inline-block;
+      vertical-align: top;
+      font-family: Arial;
+      font-size: 50px;
+      line-height: 40px;
+      font-weight: bold;
+      color: #0091db;
+    }
+
+    .data-show-box .item span {
+      font-family: Arial;
+      font-size: 50px;
+      line-height: 40px;
+      font-weight: bold;
+      color: #0091db;
+    }
+
+    .data-show-box .item .txt {
+      padding: 0 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #f8f8f8;
+    }
+
+    .footer .top {
+      position: relative;
+      padding: 40px 120px 30px 0;
+    }
+
+    .footer .bottom {
+      position: relative;
+      padding: 20px 0;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .footer .nav-1st {
+      overflow: hidden;
+    }
+
+    .footer .nav-1st>li {
+      float: left;
+      max-width: 260px;
+      margin-left: 80px;
+    }
+
+    .footer .nav-1st>li:first-child {
+      margin-left: 0;
+    }
+
+    .footer .nav-1st>li>a {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .footer .nav-1st>li>a:hover {
+      color: #004496;
+      transform: translateY(-2px);
+    }
+
+    .footer .nav-2nd>li>a {
+      display: block;
+      margin-bottom: 10px;
+      line-height: 20px;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .footer .nav-2nd>li>a:hover {
+      color: #004496;
+    }
+
+    .contact-wrap {
+      display: inline-block;
+    }
+
+    .contact-wrap>* {
+      display: block;
+      margin-bottom: 10px;
+      line-height: 20px;
+      color: #999;
+    }
+
+    .contact-wrap>em {
+      color: #666;
+    }
+
+    .footer .interaction-wrap {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      text-align: center;
+    }
+
+    .footer .interaction-wrap>.title {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+
+    .share-wrap .item {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: #ccc;
+      transition: 0.3s;
+    }
+
+    .share-wrap .item:hover {
+      background-color: #0091db;
+    }
+
+    .share-wrap .item .icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 60%;
+    }
+
+    /* Icons (Simplified for clone, using colors or basic shapes if images fail) */
+    .share-wrap .item.weixin-btn .icon {
+      background-color: #ccc;
+    }
+
+    .footer .qrcode-wrap {
+      margin-top: 20px;
+      font-size: 0;
+    }
+
+    .footer .qrcode-wrap>.item {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer .qrcode-wrap>.item .pic {
+      display: block;
+      width: 90px;
+      height: 90px;
+      margin: 0 auto;
+    }
+
+    .footer .qrcode-wrap>.item .name {
+      margin-top: 5px;
+      line-height: 20px;
+      color: #999;
+    }
+
+    .footer .cr {
+      padding: 0 200px 0 400px;
+      line-height: 20px;
+      color: #999;
+    }
+
+    .footer .cr span {
+      margin-right: 10px;
+      word-break: keep-all;
+    }
+
+    .footer .cr a {
+      display: inline-block;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .footer .cr a:hover {
+      color: #004496;
+    }
+
+    .footer .friend-links {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 120px;
+      transform: translateY(-50%);
+    }
+
+    .footer .friend-links .name {
+      height: 34px;
+      background-color: transparent;
+      border: 1px solid #ccc;
+      line-height: 32px;
+      color: #999;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .footer .friend-links .list {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    .footer .friend-links:hover .list {
+      display: block;
+    }
+
+    .footer .friend-links .list li a {
+      display: block;
+      padding: 10px;
+      color: #999;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .footer .friend-links .list li a:hover {
+      background-color: #004496;
+      color: #fff;
+    }
+
+    .footer .other-links {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      font-size: 0;
+      transform: translateY(-50%);
+    }
+
+    .footer .other-links a {
+      display: inline-block;
+      padding: 0 10px;
+      border-left: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 14px;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .footer .other-links a:first-child {
+      border-left: 0;
+    }
+
+    .footer .other-links a:hover {
+      color: #004496;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ========================================
+       LOADER SECTION
+       Yellow water-filling animation that plays on page load
+       Auto-hides after 2 seconds
+       ======================================== -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-logo"></div>
+      <div class="water-fill"></div>
+    </div>
+  </div>
+
+  <!-- ========================================
+       HEADER SECTION
+       Sticky header with logo, navigation, and language selector
+       Becomes fixed when scrolling down
+       ======================================== -->
+  <div class="header">
+    <div class="w1500 clearfix">
+      <a class="logo" href="/">
+        <img src="/logo.jpg" alt="Raito-Opto Electronics Pvt. Ltd.">
+      </a>
+      <div class="lang-select">
+        <div class="name">EN</div>
+
+      </div>
+      <div class="search-btn"></div>
+      <div class="menu-btn">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-box">
+        <ul class="nav-1st clearfix">
+          <li>
+            <a href="#">Products</a>
+            <div class="nav-2nd-wrap">
+              <div class="w1500">
+                <div class="title" style="background-image: url(/logo.jpg)">
+                  <div class="name">Products</div>
+                </div>
+                <ul class="nav-2nd clearfix">
+                  <li><a href="#">HP-Series CW Fiber Lasers</a></li>
+                  <li><a href="#">Global-Series CW Fiber Lasers</a></li>
+                  <li><a href="#">R-Series High-End Fiber Lasers</a></li>
+                  <li><a href="#">ABP Adjustable Beam Profile Fiber Lasers</a></li>
+                  <li><a href="#">QCW Fiber Lasers</a></li>
+                  <li><a href="#">High-power Pulsed Fiber Lasers</a></li>
+                  <li><a href="#">Q-Switched Pulsed Fiber Lasers</a></li>
+                  <li><a href="#">MOPA Fiber Lasers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Solution</a>
+            <div class="nav-2nd-wrap">
+              <div class="w1500">
+                <div class="title" style="background-image: url(/logo.jpg)">
+                  <div class="name">Solution</div>
+                </div>
+                <ul class="nav-2nd clearfix">
+                  <li><a href="#">Application</a></li>
+                  <li><a href="#">Industry</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Service</a>
+            <div class="nav-2nd-wrap">
+              <div class="w1500">
+                <div class="title" style="background-image: url(/logo.jpg)">
+                  <div class="name">Service</div>
+                </div>
+                <ul class="nav-2nd clearfix">
+                  <li><a href="#">Service Network</a></li>
+                  <li><a href="#">Service Policy</a></li>
+                  <li><a href="#">Video</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">News</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================
+       HERO BANNER SECTION
+       Auto-playing slider with 3 custom product images
+       Includes pagination dots and navigation buttons
+       Also contains animated statistics (Data Show)
+       ======================================== -->
+  <div class="bannerBox">
+    <div class="banner swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url(/banner1.png)">
+          <div class="w1800 h100"></div>
+        </div>
+        <div class="swiper-slide" style="background-image:url(/banner2.png)">
+          <div class="w1800 h100"></div>
+        </div>
+        <div class="swiper-slide" style="background-image:url(/banner3.png)">
+          <div class="w1800 h100"></div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="btn prev-btn"></div>
+      <div class="btn next-btn"></div>
+
+      <div class="data-show-box">
+        <div class="w1500">
+          <div class="item">
+            <div class="num" id="number1">17</div><span>+</span>
+            <div class="txt">Years Experience</div>
+          </div>
+          <div class="item">
+            <div class="num" id="number2">2000</div><span>+</span>
+            <div class="txt">Employees</div>
+          </div>
+          <div class="item">
+            <div class="num" id="number3">120</div><span>+</span>
+            <div class="txt">Offices</div>
+          </div>
+          <div class="item">
+            <div class="num" id="number4">50</div><span>+</span>
+            <div class="txt">Countries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="index-content">
+    <!-- ========================================
+         SOLUTION SECTION (Part 1)
+         Application and Industry solutions
+         ======================================== -->
+    <div class="part1">
+      <div class="solution-box">
+        <div class="item " style="background-image: url(/logo.jpg)">
+          <div class="content">
+            <a alt="Application" title="Application" class="tit" href="#">Application</a>
+            <div class="links">
+              <a href="#">Cutting</a>
+              <a href="#">Welding</a>
+              <a href="#">Cleaning</a>
+              <a href="#">Marking</a>
+              <a href="#">Quenching/Cladding</a>
+              <a href="#">Precision
+                Processing</a>
+            </div>
+            <a class="more" href="#"></a>
+          </div>
+          <div class="switch-btn">Application<i></i></div>
+        </div>
+        <div class="item show">
+          <div class="content">
+            <a alt="Industry" title="Industry" class="tit" href="#">Industry</a>
+            <div class="links">
+              <a href="#">Metallurgy</a>
+              <a href="#">Car Manufacturer</a>
+              <a href="#">Rail traffic</a>
+              <a href="#">Power Battery</a>
+              <a href="#">Kitchen/Hardware</a>
+              <a href="#">3C Electronic</a>
+            </div>
+            <a class="more" href="#"></a>
+          </div>
+          <div class="switch-btn">Industry<i></i></div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ========================================
+         PRODUCT SECTION (Part 2)
+         Synchronized swipers:
+         - Left: Product titles (vertical fade)
+         - Right: Product images (horizontal slide)
+         - Background: Dynamic number display (01-04)
+         ======================================== -->
+    <div class="part2">
+      <div class="con-l">
+        <h1 class="index-title">
+          <a class="name" href="#">Products</a>
+        </h1>
+        <div class="product-title-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a class="title" href="#">Global-Series CW
+                Fiber Lasers</a>
+              <ul class="list">
+                <li>High efficiency of electro-optic conversion</li>
+                <li>
+                  Resistance to high resistance</li>
+                <li>
+                  Efficient sheet cutting</li>
+                <li>
+                  Output fiber length can be customized</li>
+                <li>
+                  Maintenance free operation</li>
+                <li>
+                  Wide modulation frequency range</li>
+              </ul>
+            </div>
+            <div class="swiper-slide">
+              <a class="title" href="#">HP-Series CW
+                Fiber Lasers</a>
+              <ul class="list">
+                <li></li>
+              </ul>
+            </div>
+            <div class="swiper-slide">
+              <a class="title" href="#">QCW Fiber Lasers</a>
+              <ul class="list">
+                <li></li>
+              </ul>
+            </div>
+            <div class="swiper-slide">
+              <a class="title" href="#">MOPA Fiber Lasers</a>
+              <ul class="list">
+                <li></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="con-r">
+        <div class="product-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="tit">Global-Series CW Fiber Lasers</div>
+              <a class="pic" alt="VLPM 30000-W Laser Unit" title="VLPM 30000-W Laser Unit" href="#"
+                style="background-image: url(/product1.png);"></a>
+            </div>
+            <div class="swiper-slide">
+              <div class="tit">HP-Series CW Fiber Lasers</div>
+              <a class="pic" alt="VLPM 30000-W Laser Unit" title="VLPM 30000-W Laser Unit" href="#"
+                style="background-image: url(/product2.png);"></a>
+            </div>
+            <div class="swiper-slide">
+              <div class="tit">QCW Fiber Lasers</div>
+              <a class="pic" alt="VLPM 30000-W Laser Unit" title="VLPM 30000-W Laser Unit" href="#"
+                style="background-image: url(/product3.png);"></a>
+            </div>
+            <div class="swiper-slide">
+              <div class="tit">MOPA Fiber Lasers</div>
+              <a class="pic" alt="VLPM 30000-W Laser Unit" title="VLPM 30000-W Laser Unit" href="#"
+                style="background-image: url(/product4.png);"></a>
+            </div>
+            <div class="swiper-slide">
+              <div class="tit">HP-Series CW Fiber Lasers</div>
+              <a class="pic" alt="VLPM 30000-W Laser Unit" title="VLPM 30000-W Laser Unit" href="#"
+                style="background-image: url(/product3.png);"></a>
+            </div>
+            <div class="swiper-slide">
+              <div class="tit">Global-Series CW Fiber Lasers</div>
+              <a class="pic" alt="VLPM 30000-W Laser Unit" title="VLPM 30000-W Laser Unit" href="#"
+                style="background-image: url(/product4.png);"></a>
+            </div>
+          </div>
+          <div class="btn prev-btn"></div>
+          <div class="btn next-btn"></div>
+        </div>
+      </div>
+      <div class="product-number">01</div>
+    </div>
+    <!-- ========================================
+         NEWS SECTION (Part 4)
+         Three tabs: Raito-Opto News, Industry Trends,
+         Auto-playing carousel with company logo images
+         ======================================== -->
+    <div class="part4">
+      <h1 class="index-title">
+        <a class="name" href="#">News</a>
+      </h1>
+      <div class="rayclass-logo">
+        <img class="logo" src="#" alt="">
+        <a class="btn ani-btn" href="javascript:;" target="_blank" style="display: none;"></a>
+      </div>
+      <div class="news-tab-box">
+        <div class="btn prev-btn"></div>
+        <div class="btn next-btn"></div>
+        <div class="tabs">
+          <div class="item on">Raito News</div>
+        </div>
+        <div class="tab-content">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="news-swiper">
+                <div class="swiper-wrapper">
+                  <a alt="Raito-Opto high-end R-series debuted at EuroBLECH 2022"
+                    title="Raito-Opto high-end R-series debuted at EuroBLECH 2022" class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto high-end R-series debuted at EuroBLECH 2022</div>
+                      <div class="txt">The world's most influential and largest sheet metal process</div>
+                      <div class="date">2022-10-29<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Raito-Opto attended the IWJC2022 International Welding Conference in South Korea"
+                    title="Raito-Opto attended the IWJC2022 International Welding Conference in South Korea"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto attended the IWJC2022 International Welding Conference in South Korea
+                      </div>
+                      <div class="txt">On October 6, the IWJC-Korea 2022 International Welding Conf</div>
+                      <div class="date">2022-10-10<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Raito-Opto participated in MAKTEK EURASIA 2022 International Machine Tool Exhibition, and it ended wonderfully!"
+                    title="Raito-Opto participated in MAKTEK EURASIA 2022 International Machine Tool Exhibition, and it ended wonderfully!"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto participated in MAKTEK EURASIA 2022 International Machine Tool
+                        Exhibition,
+                        and it ended wonderfully!</div>
+                      <div class="txt">MAKTEK EURASIA 2022 International Machine Tool Exhibition wa</div>
+                      <div class="date">2022-10-09<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Raito-Opto Laser participated in ATC Automotive Intelligent Manufacturing Technology Week"
+                    title="Raito-Opto Laser participated in ATC Automotive Intelligent Manufacturing Technology Week"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto Laser participated in ATC Automotive Intelligent Manufacturing
+                        Technology
+                        Week</div>
+                      <div class="txt">ATC Automotive Intelligent Manufacturing Technology Week was</div>
+                      <div class="date">2022-08-12<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Raito-Opto participated in China Marking 2022 exhibition and demonstrated our new produts processing capability"
+                    title="Raito-Opto participated in China Marking 2022 exhibition and demonstrated our new produts processing capability"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto participated in China Marking 2022 exhibition and demonstrated our new
+                        produts processing capability</div>
+                      <div class="txt">From July 25th to July 27th, the annual meeting & exhibition</div>
+                      <div class="date">2022-07-29<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-swiper">
+                <div class="swiper-wrapper">
+                  <a alt="New weapon for plastic welding" title="New weapon for plastic welding" class="swiper-slide"
+                    href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">New weapon for plastic welding</div>
+                      <div class="txt">With the development of new material processing technology, </div>
+                      <div class="date">2021-05-21<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Welding high anti-reflection materials in this way guarantees double the efficiency and half the work!"
+                    title="Welding high anti-reflection materials in this way guarantees double the efficiency and half the work!"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Welding high anti-reflection materials in this way guarantees double the
+                        efficiency and half the work!</div>
+                      <div class="txt">Infrared lasers have always been difficult to handle the wel</div>
+                      <div class="date">2021-04-28<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Rail transit ushered in the era of laser cleaning"
+                    title="Rail transit ushered in the era of laser cleaning" class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Rail transit ushered in the era of laser cleaning</div>
+                      <div class="txt">On April 14, the 2021 (fifth) China Rail Transit Industry Co</div>
+                      <div class="date">2021-04-20<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Breakthrough in localization, Raito-Opto provides better solutions for the lithium battery field"
+                    title="Breakthrough in localization, Raito-Opto provides better solutions for the lithium battery field"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Breakthrough in localization, Raito-Opto provides better solutions for the
+                        lithium
+                        battery field</div>
+                      <div class="txt">CIBF2021 The 14th China International Battery Technology Exc</div>
+                      <div class="date">2021-03-22<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="【Advanced manufacturing technology】The role of laser additive manufacturing"
+                    title="【Advanced manufacturing technology】The role of laser additive manufacturing"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">【Advanced manufacturing technology】The role of laser additive manufacturing</div>
+                      <div class="txt">&nbsp;
+
+                        ​The field of laser applications continues to expa</div>
+                      <div class="date">2020-12-29<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="news-swiper">
+                <div class="swiper-wrapper">
+                  <a alt="Dross-Free Cutting Guide! 4-Step Troubleshooting Method, Even Beginners Can Understand!"
+                    title="Dross-Free Cutting Guide! 4-Step Troubleshooting Method, Even Beginners Can Understand!"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Dross-Free Cutting Guide! 4-Step Troubleshooting Method, Even Beginners Can
+                        Understand!</div>
+                      <div class="txt">Have you ever encountered these situations?
+
+                        &nbsp;
+
+
+                      </div>
+                      <div class="date">2025-09-05<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="【Rayclass】The new revolution of laser welding washing machine liner"
+                    title="【Rayclass】The new revolution of laser welding washing machine liner" class="swiper-slide"
+                    href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">【Rayclass】The new revolution of laser welding washing machine liner</div>
+                      <div class="txt">&nbsp;
+
+                        &nbsp;
+
+                        &nbsp;
+
+                        In the manufacturing process o</div>
+                      <div class="date">2020-12-11<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="【Ray | video】Laser Quenching Process for Mask Mould"
+                    title="【Ray | video】Laser Quenching Process for Mask Mould" class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">【Ray | video】Laser Quenching Process for Mask Mould</div>
+                      <div class="txt">
+                        &nbsp;
+
+
+                        In the #epidemic prevention &amp; control Batt</div>
+                      <div class="date">2020-05-13<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="【Rayclass  | 锐课堂】Laser cutting nozzle" title="【Rayclass  | 锐课堂】Laser cutting nozzle"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(/logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">【Rayclass | 锐课堂】Laser cutting nozzle</div>
+                      <div class="txt">
+                        切割头喷嘴安装在加工头前端，有助于控制辅助气体的流速和流量进而会影响到激光切割机的切割质量。
+
+
+
+
+
+                      </div>
+                      <div class="date">2020-04-05<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="【Rayclass  | 锐课堂】Fiber Delivered Direct Diode Lasers"
+                    title="【Rayclass  | 锐课堂】Fiber Delivered Direct Diode Lasers" class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">【Rayclass | 锐课堂】Fiber Delivered Direct Diode Lasers</div>
+                      <div class="txt">
+
+
+
+                        无需出门
+
+                        只要打开手机就能学习
+
+                         
+
+                        不用长时间观看视频教程
+
+                        分分钟就能得到关于光</div>
+                      <div class="date">2020-04-02<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Raito-Opto high-end R-series debuted at EuroBLECH 2022"
+                    title="Raito-Opto high-end R-series debuted at EuroBLECH 2022" class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto high-end R-series debuted at EuroBLECH 2022</div>
+                      <div class="txt">The world's most influential and largest sheet metal process</div>
+                      <div class="date">2022-10-29<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                  <a alt="Raito-Opto participated in MAKTEK EURASIA 2022 International Machine Tool Exhibition, and it ended wonderfully!"
+                    title="Raito-Opto participated in MAKTEK EURASIA 2022 International Machine Tool Exhibition, and it ended wonderfully!"
+                    class="swiper-slide" href="#">
+                    <div class="pic"><em style="background-image: url(logo.jpg)"></em>
+                    </div>
+                    <div class="info">
+                      <div class="tit">Raito-Opto participated in MAKTEK EURASIA 2022 International Machine Tool
+                        Exhibition,
+                        and it ended wonderfully!</div>
+                      <div class="txt">MAKTEK EURASIA 2022 International Machine Tool Exhibition wa</div>
+                      <div class="date">2022-10-09<i class="arrow">Details</i></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ========================================
+         ABOUT SECTION (Part 5)
+         Company information and video
+         ======================================== -->
+    <div class="part5">
+      <div class="about-box">
+        <h1 class="index-title">
+          <div class="name">About Raito-Opto Electronics Pvt. Ltd.</div>
+        </h1>
+        <div class="txt">
+          <p>Raito-Opto Electronics Pvt. Ltd. (hereinafter&nbsp;referred to as &quot;Raito-Opto&quot;)
+            is the first Chinese enterprise engaged in the research, development and scale production of high-power
+            fiber lasers and core&nbsp;devices&nbsp;and the largest fiber laser R&amp;D and production base &nbsp;with
+            global influence&nbsp;in China.&nbsp;</p>
+        </div>
+
+        <div class="btns-area">
+          <a class="btn ani-btn" href="#">Learn More +</a>
+          <a class="btn ani-btn" href="#">R&D Capacity</a>
+        </div>
+        <div class="play-btn"><span class="icon"><i></i></span>Raito-Opto Video</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================
+       FOOTER SECTION
+       Company links, contact info, social media
+       Copyright information
+       ======================================== -->
+  <div class="footer">
+    <div class="w1500">
+      <div class="top clearfix">
+        <ul class="nav-1st clearfix">
+          <li>
+            <a href="#">Products</a>
+            <ul class="nav-2nd">
+              <li><a href="#">Fiber Laser Source</a></li>
+              <li><a href="#">Fiber Laser Source</a></li>
+              <li><a href="#">Fiber Laser Source</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Solution</a>
+            <ul class="nav-2nd">
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Industry</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Service</a>
+            <ul class="nav-2nd">
+              <li><a href="#">Service Network</a></li>
+              <li><a href="#">Service Policy</a></li>
+            </ul>
+          </li>
+          <li>
+            <a>Contact Us</a>
+            <div class="contact-wrap">
+              <em>Tel: </em>
+              <em>Fax: </em>
+              <span>Address</span>
+            </div>
+          </li>
+        </ul>
+        <div class="interaction-wrap">
+          <div class="title">Interact with Raito</div>
+          <div class="share-wrap">
+            <a class="item linkedin-btn" href="#" target="_blank"><i class="icon"></i></a>
+            <a class="item twitter-btn" href="#" target="_blank"><i class="icon"></i></a>
+            <a class="item youtube-btn" href="#" target="_blank"><i class="icon"></i></a>
+          </div>
+          <div class="qrcode-wrap">
+            <div class="item">
+              <img class="pic" src="qr.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom clearfix">
+        <div class="cr">
+          <span><a target="_blank" href="#">COPYRIGHT© 2025 Raito-Opto Electronics Pvt. Ltd. ALL RIGHT
+              RESERVED.</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CDN Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="src/main.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          var loader = document.getElementById('loader');
+          if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(function () {
+              loader.style.display = 'none';
+            }, 500);
+          }
+        }, 2000);
+      });
+    </script>
+</body>
+
+</html>
