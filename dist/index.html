@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raycus Laser</title>
+
+  <style>
+    /* Reset & Common */
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+
+    div,
+    img,
+    ul,
+    li,
+    dl,
+    dt,
+    dd,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    p {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    i,
+    em {
+      font-style: normal;
+    }
+
+    img {
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Widths */
+    .w1500 {
+      position: relative;
+      width: 94%;
+      margin: 0 auto;
+      height: 100%;
+      max-width: 1500px;
+    }
+
+    /* Header */
+    .header {
+      z-index: 100;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 110px;
+      background-color: transparent;
+      transition: 0.5s;
+    }
+
+    .header:hover {
+      background-color: #fff;
+    }
+
+    .header.fixed {
+      position: fixed;
+      height: 60px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+
+    /* Logo */
+    .header .logo {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 24px;
+      transition: 0.5s;
+    }
+
+    .header .logo img {
+      display: block;
+      max-width: 200px;
+      max-height: 50px;
+    }
+
+    .header.fixed .logo {
+      top: 10px;
+    }
+
+    /* Info Wrap */
+    .header .info-wrap {
+      position: absolute;
+      left: 260px;
+      bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .info-wrap {
+      opacity: 1;
+    }
+
+    .header.fixed .info-wrap {
+      opacity: 0;
+    }
+
+    .header .info-wrap span {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .header .info-wrap span i {
+      color: #004496;
+    }
+
+    /* Lang Select */
+    .header .lang-select {
+      z-index: 1;
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      width: 80px;
+      transform: translateY(-50%);
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .lang-select {
+      opacity: 1;
+    }
+
+    .header.fixed .lang-select {
+      opacity: 1;
+    }
+
+    .header .lang-select:before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      width: 1px;
+      height: 16px;
+      margin-top: -8px;
+      background-color: #333;
+    }
+
+    .header .lang-select .name {
+      position: relative;
+      height: 24px;
+      padding: 0 15px 0 20px;
+      line-height: 24px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .header .lang-select .name:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      margin-top: -12px;
+      background-color: #ccc;
+    }
+
+    .header .lang-select .name:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid #333;
+      border-bottom: 1px solid #333;
+      transform: rotate(45deg) translate(-50%, -50%);
+    }
+
+    .header .lang-select .list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: 5px 0;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: 0.3s;
+      display: none;
+    }
+
+    .header .lang-select:hover .list {
+      display: block;
+      transform: scaleY(1);
+    }
+
+    .header .lang-select .list li a {
+      display: block;
+      padding: 10px;
+      line-height: 16px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .header .lang-select .list li a:hover {
+      color: #0091db;
+    }
+
+    /* Search Btn */
+    .header .search-btn {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      background-color: #ccc;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .search-btn {
+      opacity: 1;
+    }
+
+    .header.fixed .search-btn {
+      opacity: 1;
+    }
+
+    /* Nav Box */
+    .nav-box {
+      position: absolute;
+      left: 260px;
+      top: 0;
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .header:hover .nav-box {
+      opacity: 1;
+    }
+
+    .header.fixed .nav-box {
+      opacity: 1;
+    }
+
+    .nav-box .nav-1st>li {
+      float: left;
+      padding: 0 18px;
+      line-height: 110px;
+      transition: 0.5s;
+    }
+
+    .nav-box .nav-1st>li>a {
+      position: relative;
+      display: block;
+      font-size: 18px;
+    }
+
+    .nav-box .nav-1st>li>a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 30px;
+      width: 100%;
+      height: 3px;
+      background-color: #0091db;
+      transform: scaleX(0);
+      transition: 0.3s;
+    }
+
+    .nav-box .nav-1st>li:hover>a:after {
+      transform: scaleX(1);
+    }
+
+    .header.fixed .nav-box .nav-1st>li {
+      line-height: 60px;
+    }
+
+    .header.fixed .nav-box .nav-1st>li>a:after {
+      bottom: 12px;
+    }
+
+    /* Nav 2nd */
+    .nav-box .nav-2nd-wrap {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 110px;
+      padding: 40px 0;
+      background-color: #f8f8f8;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-box .nav-1st>li:hover .nav-2nd-wrap {
+      display: block;
+    }
+
+    .header.fixed .nav-box .nav-2nd-wrap {
+      top: 60px;
+    }
+
+    .nav-box .nav-2nd-wrap .title {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .nav-box .nav-2nd-wrap .title .name {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      font-size: 30px;
+      line-height: 30px;
+      color: #fff;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+    }
+
+    .nav-box .nav-2nd {
+      overflow: hidden;
+      position: relative;
+      min-height: 120px;
+      margin: 0 400px 0 22%;
+    }
+
+    .nav-box .nav-2nd:before {
+      content: "";
+      position: absolute;
+      left: 47.5%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    .nav-box .nav-2nd:after {
+      content: "";
+      position: absolute;
+      right: 2.5%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    .nav-box .nav-2nd>li {
+      position: relative;
+      float: left;
+      width: 45%;
+      margin-right: 5%;
+    }
+
+    .nav-box .nav-2nd>li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #fff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.5s;
+    }
+
+    .nav-box .nav-2nd>li>a {
+      position: relative;
+      display: block;
+      padding: 15px 20px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .nav-box .nav-2nd>li>a:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 0;
+      background-color: #0091db;
+      transition: 0.3s;
+    }
+
+    .nav-box .nav-2nd>li>a:after {
+      content: "";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid #666;
+      border-right: 1px solid #666;
+      transform: translate(0, -50%) rotate(45deg);
+    }
+
+    .nav-box .nav-2nd>li:hover:before {
+      transform: scaleX(1);
+    }
+
+    .nav-box .nav-2nd>li:hover>a:before {
+      top: 0;
+      height: 100%;
+    }
+
+    /* Banner */
+    .banner {
+      z-index: 0;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .banner .swiper-slide {
+      display: block;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: none;
+    }
+
+    .banner .banner-text {
+      margin-top: 15%;
+      font-family: Arial;
+      font-size: 60px;
+      text-align: center;
+      font-weight: bold;
+      color: #e4b861;
+    }
+
+    .banner .swiper-pagination {
+      z-index: 1;
+      left: 50%;
+      bottom: 190px;
+      width: auto;
+      font-size: 0;
+      transform: translateX(-50%);
+    }
+
+    .banner .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      margin: 0 10px !important;
+      background-color: #0091db;
+      border-radius: 4px;
+      box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+      opacity: .3;
+      transition: 0.3s;
+    }
+
+    .banner .swiper-pagination-bullet-active {
+      position: relative;
+      background-color: #0091db;
+      opacity: 1;
+    }
+
+    .banner .btn {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 60px;
+      margin-top: -30px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+    }
+
+    .banner .prev-btn {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    .banner .prev-btn:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid #fff;
+      border-left: 2px solid #fff;
+      transform: translate(-30%, -50%) rotate(-45deg);
+    }
+
+    .banner .next-btn {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    .banner .next-btn:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: translate(-70%, -50%) rotate(45deg);
+    }
+
+    .banner .btn:hover {
+      background-color: #0091db;
+      border-color: #0091db;
+    }
+
+    .banner:hover .prev-btn {
+      transform: translateX(20%);
+    }
+
+    .banner:hover .next-btn {
+      transform: translateX(-20%);
+    }
+
+    /* Data Show Box */
+    .data-show-box {
+      padding: 35px 0;
+      font-size: 0;
+      text-align: center;
+    }
+
+    .banner .data-show-box {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, .5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    }
+
+    .data-show-box .item {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+      font-size: 14px;
+    }
+
+    .data-show-box .item:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    .data-show-box .item:first-child:before {
+      display: none;
+    }
+
+    .data-show-box .item .num {
+      display: inline-block;
+      vertical-align: top;
+      font-family: Arial;
+      font-size: 50px;
+      line-height: 40px;
+      font-weight: bold;
+      color: #0091db;
+    }
+
+    .data-show-box .item span {
+      font-family: Arial;
+      font-size: 50px;
+      line-height: 40px;
+      font-weight: bold;
+      color: #0091db;
+    }
+
+    .data-show-box .item .txt {
+      padding: 0 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #f8f8f8;
+    }
+
+    .footer .top {
+      position: relative;
+      padding: 40px 120px 30px 0;
+    }
+
+    .footer .bottom {
+      position: relative;
+      padding: 20px 0;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .footer .nav-1st {
+      overflow: hidden;
+    }
+
+    .footer .nav-1st>li {
+      float: left;
+      max-width: 260px;
+      margin-left: 80px;
+    }
+
+    .footer .nav-1st>li:first-child {
+      margin-left: 0;
+    }
+
+    .footer .nav-1st>li>a {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .footer .nav-1st>li>a:hover {
+      color: #004496;
+      transform: translateY(-2px);
+    }
+
+    .footer .nav-2nd>li>a {
+      display: block;
+      margin-bottom: 10px;
+      line-height: 20px;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .footer .nav-2nd>li>a:hover {
+      color: #004496;
+    }
+
+    .contact-wrap {
+      display: inline-block;
+    }
+
+    .contact-wrap>* {
+      display: block;
+      margin-bottom: 10px;
+      line-height: 20px;
+      color: #999;
+    }
+
+    .contact-wrap>em {
+      color: #666;
+    }
+
+    .footer .interaction-wrap {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      text-align: center;
+    }
+
+    .footer .interaction-wrap>.title {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+
+    .share-wrap .item {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: #ccc;
+      transition: 0.3s;
+    }
+
+    .share-wrap .item:hover {
+      background-color: #0091db;
+    }
+
+    .share-wrap .item .icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 60%;
+    }
+
+    /* Icons (Simplified for clone, using colors or basic shapes if images fail) */
+    .share-wrap .item.weixin-btn .icon {
+      background-color: #ccc;
+    }
+
+    .footer .qrcode-wrap {
+      margin-top: 20px;
+      font-size: 0;
+    }
+
+    .footer .qrcode-wrap>.item {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer .qrcode-wrap>.item .pic {
+      display: block;
+      width: 90px;
+      height: 90px;
+      margin: 0 auto;
+    }
+
+    .footer .qrcode-wrap>.item .name {
+      margin-top: 5px;
+      line-height: 20px;
+      color: #999;
+    }
+
+    .footer .cr {
+      padding: 0 200px 0 400px;
+      line-height: 20px;
+      color: #999;
+    }
+
+    .footer .cr span {
+      margin-right: 10px;
+      word-break: keep-all;
+    }
+
+    .footer .cr a {
+      display: inline-block;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .footer .cr a:hover {
+      color: #004496;
+    }
+
+    .footer .friend-links {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 120px;
+      transform: translateY(-50%);
+    }
+
+    .footer .friend-links .name {
+      height: 34px;
+      background-color: transparent;
+      border: 1px solid #ccc;
+      line-height: 32px;
+      color: #999;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .footer .friend-links .list {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    .footer .friend-links:hover .list {
+      display: block;
+    }
+
+    .footer .friend-links .list li a {
+      display: block;
+      padding: 10px;
+      color: #999;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .footer .friend-links .list li a:hover {
+      background-color: #004496;
+      color: #fff;
+    }
+
+    .footer .other-links {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      font-size: 0;
+      transform: translateY(-50%);
+    }
+
+    .footer .other-links a {
+      display: inline-block;
+      padding: 0 10px;
+      border-left: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 14px;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .footer .other-links a:first-child {
+      border-left: 0;
+    }
+
+    .footer .other-links a:hover {
+      color: #004496;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-B4hmujMp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CeYlA-YY.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="w1500 clearfix">
+      <a class="logo" href="/">
+        <img src="https://en.raycuslaser.com/theme/default/images_new/logo.png" alt="Raycus">
+      </a>
+      <div class="info-wrap">
+        <span>Stock Code: <i>300747</i></span>
+      </div>
+      <div class="lang-select">
+        <div class="name">EN</div>
+        <ul class="list">
+          <li><a href="#">CN</a></li>
+          <li><a href="#">EN</a></li>
+          <li><a href="#">RU</a></li>
+          <li><a href="#">KR</a></li>
+        </ul>
+      </div>
+      <div class="search-btn"></div>
+      <div class="menu-btn">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-box">
+        <ul class="nav-1st clearfix">
+          <li>
+            <a href="#">Products</a>
+            <div class="nav-2nd-wrap">
+              <div class="w1500">
+                <div class="title"
+                  style="background-image: url(https://en.raycuslaser.com/theme/default/images_new/nav_bg.jpg);">
+                  <div class="name">Products</div>
+                </div>
+                <ul class="nav-2nd clearfix">
+                  <li><a href="#">HP-Series CW Fiber Lasers</a></li>
+                  <li><a href="#">Global-Series CW Fiber Lasers</a></li>
+                  <li><a href="#">R-Series High-End Fiber Lasers</a></li>
+                  <li><a href="#">ABP Adjustable Beam Profile Fiber Lasers</a></li>
+                  <li><a href="#">QCW Fiber Lasers</a></li>
+                  <li><a href="#">High-power Pulsed Fiber Lasers</a></li>
+                  <li><a href="#">Q-Switched Pulsed Fiber Lasers</a></li>
+                  <li><a href="#">MOPA Fiber Lasers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Solution</a>
+            <div class="nav-2nd-wrap">
+              <div class="w1500">
+                <div class="title"
+                  style="background-image: url(https://en.raycuslaser.com/theme/default/images_new/nav_bg.jpg);">
+                  <div class="name">Solution</div>
+                </div>
+                <ul class="nav-2nd clearfix">
+                  <li><a href="#">Application</a></li>
+                  <li><a href="#">Industry</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Service</a>
+            <div class="nav-2nd-wrap">
+              <div class="w1500">
+                <div class="title"
+                  style="background-image: url(https://en.raycuslaser.com/theme/default/images_new/nav_bg.jpg);">
+                  <div class="name">Service</div>
+                </div>
+                <ul class="nav-2nd clearfix">
+                  <li><a href="#">Service Network</a></li>
+                  <li><a href="#">Service Policy</a></li>
+                  <li><a href="#">Video</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">News</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="bannerBox">
+    <div class="banner swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"
+          style="background-image:url(https://en.raycuslaser.com/upload/20240914/66e5493033775.jpg)">
+          <div class="w1500 h100">
+            <!-- Content if any -->
+          </div>
+        </div>
+        <div class="swiper-slide"
+          style="background-image:url(https://en.raycuslaser.com/upload/20240315/65f3b8353212e.jpg)">
+          <div class="w1500 h100"></div>
+        </div>
+        <div class="swiper-slide"
+          style="background-image:url(https://en.raycuslaser.com/upload/20240315/65f3b8509550d.jpg)">
+          <div class="w1500 h100"></div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="btn prev-btn"></div>
+      <div class="btn next-btn"></div>
+
+      <div class="data-show-box">
+        <div class="w1500">
+          <div class="item">
+            <div class="num" id="number1">17</div><span>+</span>
+            <div class="txt">Years Experience</div>
+          </div>
+          <div class="item">
+            <div class="num" id="number2">2000</div><span>+</span>
+            <div class="txt">Employees</div>
+          </div>
+          <div class="item">
+            <div class="num" id="number3">120</div><span>+</span>
+            <div class="txt">Offices</div>
+          </div>
+          <div class="item">
+            <div class="num" id="number4">50</div><span>+</span>
+            <div class="txt">Countries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="w1500">
+      <div class="top clearfix">
+        <ul class="nav-1st clearfix">
+          <li>
+            <a href="#">Products</a>
+            <ul class="nav-2nd">
+              <li><a href="#">HP-Series CW Fiber Lasers</a></li>
+              <li><a href="#">Global-Series CW Fiber Lasers</a></li>
+              <li><a href="#">R-Series High-End Fiber Lasers</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Solution</a>
+            <ul class="nav-2nd">
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Industry</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Service</a>
+            <ul class="nav-2nd">
+              <li><a href="#">Service Network</a></li>
+              <li><a href="#">Service Policy</a></li>
+            </ul>
+          </li>
+          <li>
+            <a>Contact Us</a>
+            <div class="contact-wrap">
+              <em>Tel: +86 027 8700 1978</em>
+              <em>Fax: +86 027 8133 8818</em>
+              <span>Address：No.999 Gaoxin Avenue, East Lake Hi-Tech Development Zone, 430075 , Wuhan, Hubei,
+                P.R.China</span>
+            </div>
+          </li>
+        </ul>
+        <div class="interaction-wrap">
+          <div class="title">Interact with Raycus</div>
+          <div class="share-wrap">
+            <a class="item weixin-btn" href="javascript:;"><i class="icon"></i></a>
+            <a class="item linkedin-btn" href="#" target="_blank"><i class="icon"></i></a>
+            <a class="item twitter-btn" href="#" target="_blank"><i class="icon"></i></a>
+            <a class="item youtube-btn" href="#" target="_blank"><i class="icon"></i></a>
+          </div>
+          <div class="qrcode-wrap">
+            <div class="item">
+              <img class="pic" src="https://en.raycuslaser.com/theme/default/images/ewm.png" alt="">
+              <div class="name">Focus on us</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom clearfix">
+        <div class="other-links">
+          <a href="#">Contact us</a>
+          <a href="#">Legal Notices</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div class="cr">
+          <span><a target="_blank" href="#">ECP No. 09000836</a></span>
+          <span><a target="_blank" href="#">COPYRIGHT© 2016 Wuhan Raycus Fiber Laser Technologies Co., Ltd. ALL RIGHT
+              RESERVED.</a></span>
+        </div>
+        <div class="custom-select friend-links">
+          <div class="name">LINKS</div>
+          <ul class="list">
+            <li><a href="#" target="_blank">Innotech Laser GmbH</a></li>
+            <li><a href="#" target="_blank">Scanner Optics Co., Ltd.</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

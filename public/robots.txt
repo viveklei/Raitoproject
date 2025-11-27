@@ -1,0 +1,17 @@
+# Robots.txt for Raito-Opto Electronics Pvt. Ltd.
+# This file tells search engines which pages they can and cannot crawl
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.raito-opto.com/sitemap.xml
+
+# Crawl-delay (optional - helps prevent server overload)
+# Crawl-delay: 10
+
+# Disallow specific paths if needed (examples below - currently commented out)
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /temp/

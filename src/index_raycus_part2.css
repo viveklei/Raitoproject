@@ -1,0 +1,937 @@
+.fast-entrance-box>.item:nth-child(3) .icon {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxQzNFNDA4QUU5QTgxMUVBQjVBRTk3OUEyQTU0RDE2RSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxQzNFNDA4QkU5QTgxMUVBQjVBRTk3OUEyQTU0RDE2RSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjFDM0U0MDg4RTlBODExRUFCNUFFOTc5QTJBNTREMTZFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjFDM0U0MDg5RTlBODExRUFCNUFFOTc5QTJBNTREMTZFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+V02GNAAAA0NJREFUeNrsnM9r1EAUxyetq2xF0UqrYmEVS7VqEXtSRFGKF/EHHv1RD/4DFi/iZQ+h9CpetaUepB4EjyIiCB7cUqUIYsFDi6WoSBFXF3/Wdv0+M5qhpqkms8lMeA++zLS7m0w+eW9+ZSZOtVoVbH+bEwamWCzWI1ll6bXNuK77UTsYQGlB0gOtsPjGj0JXAei/w6Iu5LMuy6GQdUItUX64JOSz5Uq+ZBmQ9dBGmc/rBvPH4IrXbaKCaqBLARPJ6rj9YTD6QynEZaly3mQg4A1KvhXlbAj4ziw0jmris1YwOFkzkktQg+E3/3jIZxVcRy/glHWG0i4LoCxm5PEdukNpqZK/B5UtAkLefiDgOvTUMYqNwB2nLGrO2xQw3Cpxc81gGAyDYTAMhsEwGB5da7DOock9SM5BuQSvawYaGD1VGDYWDGwQ2pLCTd8HbTU5lJ6kFA2PjQ4l2FnhzdvUJwiFJqFeGQ0GcT6HxJqRN7dKDIbBMBgGw2AYDI+VlLESjZHaE7gJU+gzvbMGDOyWCH8aqMvKuAltgDNtSyi1JuT9tCSuySaPOQmdgZbV8By0lKwEbxmzBgwK+wzJRW6VuLlmMAyGjcEwGAbDYLIziKRe73kR/4EbPUS7gg7jjUyAgbnCWwus61iZAdMPXdBwrh/yWNkIJbh+H5I+rnztsNy8kTmDkabO21QYjG/NSn6awfj2e1kKPVd/w2DEr+Xya4S/T3LCdd1vDMazg2qjya2S5y2NSPbLP79Dw7H6MQvsEMtZBsVBclr4k/IPEEafooCZU/KXM+AwR6AdMv8euhO15zshvF1stocPecox6LBywwfhLV+jgrkvD7JZBK+fWwetNRwKbe3rhnYq/74JKC8W+60T9W0gOOlR6Z5kvSbtcEPZqFHZC50Q/hsH6EKHUM6HpoyukwRCEHZDh6DV87r91/7FUzIBRtYf1L1vlxXrtoCwfwTdBpRKGtMOBRQyX0MGBCAvw2Il1CjrOOrBBnUlKGyeQncB5GWUE8YBM6vkuw1xIlofMwKVAORtnAPFAfNcNoNOyiAmoXFoDDBea3PROO+oQvgUkGwXtV8OT4X8AlHfgza+f6DpgoUGgKmDybL9FGAAjgfFIxnPlToAAAAASUVORK5CYII=');
+}
+
+.fast-entrance-box>.item:nth-child(4) .icon {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozOTQ0RTY2NEU5QTgxMUVBOEU5ODhFQjhGNjZDMTlDMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozOTQ0RTY2NUU5QTgxMUVBOEU5ODhFQjhGNjZDMTlDMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjM5NDRFNjYyRTlBODExRUE4RTk4OEVCOEY2NkMxOUMwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjM5NDRFNjYzRTlBODExRUE4RTk4OEVCOEY2NkMxOUMwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1DxTQQAABx1JREFUeNrsXAmUFNUV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');
+}
+
+/*新闻动态选项卡*/
+.news-tab-box {
+    position: relative;
+}
+
+.news-tab-box .tabs {
+    float: left;
+    padding-top: 120px;
+}
+
+.news-tab-box .tabs .item {
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.news-tab-box .tabs .item:first-child {
+    margin-top: 0;
+}
+
+.news-tab-box .tabs .item.on {
+    color: #ffcc00;
+}
+
+.news-tab-box .tab-content {
+    margin-left: 21%;
+    overflow: hidden;
+}
+
+/*切换按钮*/
+.news-tab-box .btn {
+    z-index: 1;
+    position: absolute;
+    top: 300px;
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.news-tab-box .btn:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #fff;
+}
+
+.news-tab-box .prev-btn {
+    left: 0;
+}
+
+.news-tab-box .prev-btn:after {
+    border-left: 2px solid #fff;
+    transform: translate(-30%, -50%) rotate(-45deg);
+}
+
+.news-tab-box .next-btn {
+    left: 60px;
+}
+
+.news-tab-box .next-btn:after {
+    border-right: 2px solid #fff;
+    transform: translate(-70%, -50%) rotate(45deg);
+}
+
+.news-tab-box .btn:hover {
+    background-color: #ffcc00;
+}
+
+/*新闻轮播*/
+.news-swiper {
+    overflow: hidden;
+}
+
+.news-swiper .swiper-slide {
+    display: block;
+    background-color: #f8f8f8;
+}
+
+.news-swiper .swiper-slide .pic {
+    overflow: hidden;
+}
+
+.news-swiper .swiper-slide .pic em {
+    display: block;
+    padding-top: 62%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.8s;
+}
+
+.news-swiper .swiper-slide .info {
+    padding: 30px 40px 50px;
+}
+
+.news-swiper .swiper-slide .info .tit {
+    height: 100px;
+    font-size: 24px;
+    line-height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.news-swiper .swiper-slide .info .txt {
+    height: 120px;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: justify;
+    color: #666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.news-swiper .swiper-slide .info .date {
+    position: relative;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #ffcc00;
+}
+
+/* .news-swiper .swiper-slide .info .date .arrow{position: absolute;left: 120px;bottom: 0;width: 30px;height: 20px;transition: 0.5s;}
+.news-swiper .swiper-slide .info .date .arrow:before{content: "";position: absolute;left: 0;right: 0;top: 50%;height: 2px;margin-top: -1px;background-color: currentColor;}
+.news-swiper .swiper-slide .info .date .arrow:after{content: "";position: absolute;right: 0;top: 50%;width: 12px;height: 12px;border-top: 2px solid currentColor;border-right: 2px solid currentColor;transform: translate(-10%,-50%) rotate(45deg);} */
+.news-swiper .swiper-slide .info .date .arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    line-height: 20px;
+    transition: 0.5s;
+}
+
+.news-swiper .swiper-slide:hover .pic em {
+    transform: scale(1.05);
+}
+
+.news-swiper .swiper-slide:hover .info .tit {
+    color: #ffcc00;
+}
+
+.news-swiper .swiper-slide:hover .info .date .arrow {
+    transform: translateX(5px);
+}
+
+/*关于我们*/
+.about-box {
+    position: relative;
+    padding: 120px 8% 160px;
+    background-color: rgba(246, 246, 246, .9);
+}
+
+.about-box .txt {
+    height: 108px;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.about-box .btns-area {
+    margin-top: 100px;
+    text-align: left;
+}
+
+.about-box .btns-area .btn {
+    position: relative;
+    width: 200px;
+    height: 60px;
+    padding: 0 40px;
+    margin: 0 0 0 10%;
+    background-color: transparent;
+    border: 1px solid #333;
+    border-radius: 30px;
+    font-size: 18px;
+    line-height: 58px;
+    user-select: none;
+    overflow: hidden;
+}
+
+/* .about-box .btns-area .btn:before{content: "+";position: absolute;right: 40px;top: 0;} */
+.about-box .btns-area .btn:first-child {
+    margin-left: 0;
+}
+
+.about-box .btns-area .btn:hover {
+    border-color: #ffcc00;
+}
+
+/*播放按钮*/
+.about-box .play-btn {
+    z-index: 1;
+    position: absolute;
+    right: 20%;
+    bottom: 180px;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.about-box .play-btn .icon {
+    position: absolute;
+    left: -90px;
+    top: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.about-box .play-btn .icon:before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    border: 1px solid rgba(0, 145, 219, .6);
+    border-radius: 50%;
+}
+
+.about-box .play-btn .icon:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #fff;
+    transform: translate(-20%, -50%);
+}
+
+.about-box .play-btn .icon i {
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: -10px;
+    bottom: -10px;
+    border: 1px solid rgba(0, 145, 219, .3);
+    border-radius: 50%;
+}
+
+.about-box .play-btn .icon i:before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    top: -6px;
+    bottom: -6px;
+    border: 1px solid rgba(0, 145, 219, .1);
+    border-radius: 50%;
+}
+
+.about-box .play-btn:hover {
+    color: #ffcc00;
+}
+
+
+/*中屏PC:<=1400px(针对1366*650)*/
+@media screen and (max-width: 1400px) {
+
+    /******首页******/
+    /*标题*/
+    .index-title .name {
+        padding-bottom: 30px;
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .index-title .name:after {
+        width: 80px;
+        height: 4px;
+    }
+
+    /*布局*/
+    .index-content .part2 .index-title {
+        margin-top: -40px;
+    }
+
+    .index-content .part4 {
+        padding: 80px 0 160px 10%;
+    }
+
+    .index-content .part4:before {
+        bottom: 80px;
+        height: 200px;
+    }
+
+    .index-content .part4 .index-title {
+        top: 80px;
+    }
+
+    .index-content .part4 .rayclass-logo {
+        left: 5%;
+        bottom: 160px;
+        width: 200px;
+    }
+
+    .index-content .part5 {
+        padding: 50px 0;
+    }
+
+    /*数据展示区*/
+    .data-show-box {
+        padding: 15px 0;
+    }
+
+    .data-show-box .item .num {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .data-show-box .item span {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .data-show-box .item .txt {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    /*解决方案*/
+    .solution-box>.item {
+        height: 500px;
+    }
+
+    .solution-box>.item .content .tit {
+        margin-bottom: 40px;
+        font-size: 32px;
+    }
+
+    .solution-box>.item .content .links a {
+        margin: 0 2% 20px 0;
+    }
+
+    .solution-box>.item .content .more {
+        margin-top: 20px;
+    }
+
+    /*快速入口*/
+    .fast-entrance-box {
+        padding: 40px 0;
+    }
+
+    /*新闻动态选项卡*/
+    .news-tab-box .tabs {
+        padding-top: 10%;
+    }
+
+    .news-tab-box .tabs .item {
+        margin-top: 30px;
+    }
+
+    /*关于我们*/
+    .about-box {
+        padding: 60px 5%;
+    }
+
+    .about-box .btns-area {
+        margin-top: 50px;
+    }
+
+    /*播放按钮*/
+    .about-box .play-btn {
+        right: 10%;
+        bottom: 80px;
+    }
+
+    /*弹窗-视频*/
+    .popup-video {
+        max-width: 800px;
+    }
+}
+
+/*小屏PC:>=1025px && <=1280px*/
+@media screen and (max-width: 1280px) {}
+
+/*pad横屏:1024px*/
+@media screen and (max-width: 1024px) {
+
+    /******首页******/
+    /*标题*/
+    .index-title .name {
+        padding-bottom: 20px;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .index-title .name:after {
+        width: 60px;
+        height: 2px;
+    }
+
+    /*布局*/
+    .index-content .part2 .index-title {
+        margin-top: -20px;
+    }
+
+    .index-content .part2 .product-number {
+        font-size: 240px;
+        line-height: 200px;
+    }
+
+    .index-content .part4 {
+        padding: 50px 0 100px 10%;
+    }
+
+    .index-content .part4:before {
+        bottom: 50px;
+        height: 150px;
+    }
+
+    .index-content .part4 .index-title {
+        top: 50px;
+    }
+
+    .index-content .part4 .rayclass-logo {
+        bottom: 100px;
+        width: 200px;
+    }
+
+    .index-content .part5 {
+        padding: 30px 0;
+    }
+
+    .index-content .part5 .index-title {
+        margin-bottom: 20px;
+    }
+
+    /*数据展示区*/
+    .data-show-box .item .num {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .data-show-box .item span {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .data-show-box .item .txt {
+        font-size: 12px;
+    }
+
+    /*解决方案*/
+    .solution-box>.item {
+        height: 400px;
+    }
+
+    .solution-box>.item .content {
+        padding: 0 10%;
+    }
+
+    .solution-box>.item .content .tit {
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .solution-box>.item .content .links a {
+        height: 50px;
+        margin: 0 2% 20px 0;
+        font-size: 16px;
+        line-height: 48px;
+    }
+
+    .solution-box>.item .content .more {
+        margin-top: 0;
+    }
+
+    /*产品中心选项卡*/
+    /*标题轮播*/
+    .product-title-swiper {
+        width: 100%;
+        height: 300px;
+    }
+
+    .product-title-swiper .swiper-slide .title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .product-title-swiper .swiper-slide .list {
+        padding: 5px 0;
+    }
+
+    .product-title-swiper .swiper-slide .list li {
+        padding-left: 10px;
+        margin: 3px 0;
+        font-size: 12px;
+    }
+
+    /*快速入口*/
+    .fast-entrance-box {
+        padding: 20px 0;
+    }
+
+    .fast-entrance-box>.item .icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .fast-entrance-box>.item .name {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    /*新闻动态选项卡*/
+    .news-tab-box .tabs {
+        padding-top: 8%;
+    }
+
+    .news-tab-box .tabs .item {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+    /*新闻轮播*/
+    .news-swiper .swiper-slide .info {
+        padding: 15px 20px 30px;
+    }
+
+    .news-swiper .swiper-slide .info .tit {
+        height: 60px;
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .news-swiper .swiper-slide .info .txt {
+        height: 72px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .news-swiper .swiper-slide .info .date {
+        margin-top: 25px;
+        font-size: 14px;
+    }
+
+    /*关于我们*/
+    .about-box {
+        padding: 40px 5%;
+    }
+
+    .about-box .txt {
+        height: 90px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    .about-box .btns-area {
+        margin-top: 30px;
+    }
+
+    .about-box .btns-area .btn {
+        width: 120px;
+        height: 40px;
+        padding: 0 20px;
+        margin: 0 0 0 20px;
+        font-size: 14px;
+        line-height: 38px;
+    }
+
+    .about-box .btns-area .btn:before {
+        right: 20px;
+    }
+
+    /*播放按钮*/
+    .about-box .play-btn {
+        bottom: 50px;
+        font-size: 16px;
+    }
+
+    .about-box .play-btn .icon {
+        left: -60px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/*phone:<=768px*/
+@media screen and (max-width: 768px) {
+
+    /*banner*/
+    .bannerBox {
+        padding-top: 60px;
+    }
+
+    .banner {
+        height: auto;
+    }
+
+    .banner .swiper-slide {
+        padding-top: 55%;
+    }
+
+    .banner .swiper-slide .banner-text {
+        position: absolute;
+        left: 50%;
+        top: 31%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        width: 100%;
+        font-size: 26px;
+    }
+
+    .banner .swiper-pagination {
+        bottom: auto;
+        top: 42%;
+    }
+
+    .banner .swiper-pagination-bullet {
+        margin: 0 6px !important;
+    }
+
+    .banner .btn {
+        display: none;
+    }
+
+    /******首页******/
+    /*标题*/
+    .index-title {
+        text-align: center;
+    }
+
+    .index-title .name {
+        padding-bottom: 15px;
+        font-size: 20px;
+        line-height: 20px;
+        text-transform: capitalize;
+    }
+
+    .index-title .name:after {
+        left: 50%;
+        width: 50px;
+        height: 2px;
+        margin-left: -25px;
+    }
+
+    /*布局*/
+    .index-content .part2 {
+        padding: 0;
+    }
+
+    .index-content .part2>.con-l {
+        float: none;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .index-content .part2>.con-r {
+        margin-left: 0;
+    }
+
+    .index-content .part2 .index-title {
+        margin: 20px 5% 0;
+    }
+
+    .index-content .part2 .product-number {
+        left: -10px;
+        bottom: -10px;
+        font-size: 120px;
+        line-height: 100px;
+    }
+
+    .index-content .part4 {
+        padding: 40px 0 60px 5%;
+    }
+
+    .index-content .part4:before {
+        left: 0;
+        bottom: 30px;
+        height: 150px;
+    }
+
+    .index-content .part4 .index-title {
+        position: static;
+    }
+
+    .index-content .part4 .rayclass-logo {
+        left: auto;
+        bottom: auto;
+        right: 0;
+        top: 0;
+        width: 80px;
+        padding: 5px 10px 10px;
+    }
+
+    .index-content .part4 .rayclass-logo .btn {
+        width: 100%;
+        height: 24px;
+        margin: 5px auto 0;
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .index-content .part5 {
+        padding: 0;
+    }
+
+    .index-content .part5:before {
+        right: 0;
+    }
+
+    .index-content .part5 .index-title {
+        margin-bottom: 20px;
+    }
+
+    .index-content .part5 .about-box {
+        margin-left: 0;
+    }
+
+    /*数据展示区*/
+    .data-show-box {
+        padding: 5px 0;
+    }
+
+    .data-show-box .item {
+        width: 50%;
+        padding: 10px;
+    }
+
+    .data-show-box .item:before {
+        display: none;
+    }
+
+    .data-show-box .item .num {
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    .data-show-box .item span {
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    .data-show-box .item .txt {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .banner .data-show-box {
+        position: static;
+        background-color: #fff;
+        box-shadow: none;
+    }
+
+    /*解决方案*/
+    .solution-box>.item {
+        height: 300px;
+    }
+
+    .solution-box>.item .content {
+        padding: 0 5%;
+    }
+
+    .solution-box>.item .content .tit {
+        margin: 0 2% 20px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .solution-box>.item .content .links a {
+        width: 46%;
+        height: 36px;
+        margin: 0 2% 10px;
+        font-size: 12px;
+        line-height: 34px;
+    }
+
+    .solution-box>.item .content .more {
+        width: 30px;
+        height: 30px;
+        margin-top: 0;
+        margin-left: 2%;
+    }
+
+    .solution-box>.item .content .more:after {
+        width: 10px;
+        height: 10px;
+    }
+
+    .solution-box>.item .switch-btn {
+        width: 100px;
+        height: 40px;
+        padding: 0 15px;
+        font-size: 14px;
+        line-height: 40px;
+    }
+
+    .solution-box>.item .switch-btn i {
+        display: none;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .solution-box>.item .switch-btn i:after {
+        width: 6px;
+        height: 6px;
+    }
+
+    .solution-box>.item:nth-child(2) .switch-btn i {
+        left: 15px;
+    }
+
+    /*产品中心选项卡*/
+    /*标题轮播*/
+    .product-title-swiper {
+        display: none;
+    }
+
+    /*产品轮播*/
+    .product-swiper {
+        padding: 30px 0;
+    }
+
+    .product-swiper .swiper-slide .tit {
+        display: block;
+    }
+
+    .product-swiper .btn {
+        bottom: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    /*快速入口*/
+    .fast-entrance-box {
+        padding: 15px 0;
+    }
+
+    .fast-entrance-box>.item .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .fast-entrance-box>.item .name {
+        font-size: 12px;
+    }
+
+    /*新闻动态选项卡*/
+    .news-tab-box .tabs {
+        float: none;
+        padding-top: 0;
+        margin: 20px 0;
+        font-size: 0;
+        text-align: center;
+    }
+
+    .news-tab-box .tabs .item {
+        display: inline-block;
+        vertical-align: top;
+        margin: 5px 15px !important;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .news-tab-box .tab-content {
+        margin-left: 0;
+    }
+
+    /*关于我们*/
+    .about-box {
+        padding: 20px 5% 70px;
+        background-color: rgba(246, 246, 246, .8);
+    }
+
+    .about-box .txt {
+        height: 72px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .about-box .btns-area {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .about-box .btns-area .btn {
+        width: auto;
+        height: 30px;
+        padding: 0 15px;
+        margin: 0 5px;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    .about-box .btns-area .btn:before {
+        display: none;
+    }
+
+    .about-box .play-btn {
+        right: 30%;
+        bottom: 30px;
+        font-size: 14px;
+    }
+
+    .about-box .play-btn .icon {
+        left: -50px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .about-box .play-btn .icon:after {
+        border-width: 6px;
+    }
+}

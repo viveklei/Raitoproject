@@ -1,0 +1,334 @@
+/**
+ * Alignment Fixes & Enhancements
+ * This file contains additional CSS rules to ensure perfect alignment across all sections
+ * Include this file after other stylesheets if you notice any alignment issues
+ */
+
+/* ============================================
+   GLOBAL ALIGNMENT FIXES
+   ============================================ */
+
+/* Ensure all main containers are properly centered */
+.w1500,
+.w1400,
+.w1340 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Prevent horizontal overflow */
+body {
+    overflow-x: hidden;
+}
+
+/* Ensure consistent box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   HEADER ALIGNMENT
+   ============================================ */
+
+.header .w1500 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    flex-shrink: 0;
+}
+
+/* ============================================
+   BANNER SECTION
+   ============================================ */
+
+.bannerBox {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center pagination dots */
+.banner .swiper-pagination {
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* ============================================
+   PRODUCT SECTION
+   ============================================ */
+
+.part2 {
+    width: 100%;
+    overflow: hidden;
+}
+
+.part2 .con-l,
+.part2 .con-r {
+    vertical-align: top;
+}
+
+/* Ensure product cards are evenly spaced */
+.product-swiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Center product number */
+.product-number {
+    text-align: center;
+    width: 100%;
+}
+
+/* ============================================
+   NEWS SECTION
+   ============================================ */
+
+.part4 {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Ensure news cards are evenly spaced */
+.news-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Align news card content */
+.news-swiper .swiper-slide .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Center news tabs */
+.news-tab-box .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================
+   SOLUTION SECTION
+   ============================================ */
+
+.solution-box {
+    display: flex;
+    width: 100%;
+}
+
+.solution-box .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.part5 .about-box {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ============================================
+   FOOTER ALIGNMENT
+   ============================================ */
+
+.footer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer .w1500 {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .top {
+    width: 100%;
+}
+
+.footer .bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Center copyright text */
+.footer .cr {
+    text-align: center;
+    width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE ALIGNMENT FIXES
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .w1500 {
+        width: 95%;
+    }
+
+    /* Stack elements on smaller screens */
+    .part2 .con-l,
+    .part2 .con-r {
+        width: 100%;
+        float: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .w1500 {
+        width: 96%;
+    }
+
+    /* Center all text on mobile */
+    .part2,
+    .part4,
+    .part5 {
+        text-align: center;
+    }
+
+    /* Stack footer columns */
+    .footer .top {
+        flex-direction: column;
+    }
+
+    .footer .bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .w1500 {
+        width: 98%;
+    }
+}
+
+/* ============================================
+   SWIPER ALIGNMENT FIXES
+   ============================================ */
+
+/* Ensure all swipers are properly contained */
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+}
+
+/* Center navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ============================================
+   IMAGE ALIGNMENT
+   ============================================ */
+
+/* Ensure all images are properly contained */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Center images within containers */
+.pic img,
+.logo img {
+    margin: 0 auto;
+}
+
+/* ============================================
+   FLEX ALIGNMENT UTILITIES
+   ============================================ */
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   TEXT ALIGNMENT UTILITIES
+   ============================================ */
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+/* ============================================
+   SPACING CONSISTENCY
+   ============================================ */
+
+/* Ensure consistent section spacing */
+.part1,
+.part2,
+.part4,
+.part5 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+
+    .part1,
+    .part2,
+    .part4,
+    .part5 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}

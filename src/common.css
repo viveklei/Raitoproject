@@ -1,0 +1,745 @@
+@charset "utf-8";
+
+/*全局样式*/
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    color: #333;
+}
+
+div,
+img,
+ul,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+p {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*去掉 input 默认边框*/
+input {
+    padding: 0;
+    border: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    color: #333;
+}
+
+/* input[type="submit"]{background-color: transparent;cursor: pointer;} */
+/*去掉 textarea 默认边框*/
+textarea {
+    padding: 0;
+    border: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    color: #333;
+}
+
+/*去掉 button 默认边框*/
+button {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+/*清除浮动*/
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+    /*IE6识别*/
+}
+
+/*解决chrome浏览器 input,textarea 获得焦点时会有一个边框的问题*/
+input,
+textarea {
+    outline: none;
+}
+
+/*清除ios端 input,textarea 默认内阴影 默认圆角,radio和checkbox需要还原值为radio和checkbox*/
+input,
+textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+/*自定义 input,textarea 的placeholder文字样式*/
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #999;
+}
+
+/*常用盒模型*/
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/*滚动条*/
+body *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: #eee;
+    border-radius: 4px;
+}
+
+body *::-webkit-scrollbar-thumb {
+    background: #ffcc00;
+    border-radius: 4px;
+}
+
+/*常用宽度*/
+.w1500 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1500px;
+}
+
+.w1400 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1400px;
+}
+
+.w1340 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1340px;
+}
+
+.w1300 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1300px;
+}
+
+.w1280 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1280px;
+}
+
+.w1200 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1200px;
+}
+
+.w1140 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1140px;
+}
+
+.w1100 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1100px;
+}
+
+.w1000 {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1000px;
+}
+
+/*常用过渡*/
+.tran300 {
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.tran400 {
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.tran500 {
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+/*常用浮动*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/*按钮区通用样式*/
+.btns-area {
+    font-size: 0;
+    text-align: center;
+}
+
+.btns-area .btn {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 2em;
+    margin: 0 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 34px;
+    color: #000;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btns-area .btn img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -3px 6px 0 0;
+}
+
+/*自定义单选框input[type="radio"]样式*/
+.custom-input label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.custom-input input[type="radio"] {
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+
+.custom-input input[type="radio"]+em {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: -2px 4px 0 0;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.custom-input input[type="radio"]+em:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-input input[type="radio"]:checked+em {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+}
+
+.custom-input input[type="radio"]:checked+em:before {
+    background-color: #fff;
+}
+
+.custom-input input[type="radio"]+em:hover {
+    border-color: #ffcc00;
+}
+
+/*自定义多选框input[type="checkbox"]样式*/
+.custom-input input[type="checkbox"] {
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+
+.custom-input input[type="checkbox"]+em {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: -2px 4px 0 0;
+    background-color: #fff;
+    border: 1px solid #999;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.custom-input input[type="checkbox"]+em:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTBwdCIgaGVpZ2h0PSIxMHB0IiB2aWV3Qm94PSIwIDAgMTAgMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjg1IiBkPSJNNC4zMSA2Ljc2QzUuNjEgNC4xNCA3LjE3IDEuNTkgOS43Mi4wMUwxMCAzLjN2LjMxQzcuNzcgNS40NSA1Ljk4IDcuNzIgNC4yMyAxMGgtLjE2QzIuODkgOC44MiAxLjg1IDYuOTMgMCA2Ljgydi0uNTNjLjU5LS40MSAxLjc4LTEuMjMgMi4zNy0xLjY0LjY1LjcgMS4yOSAxLjQxIDEuOTQgMi4xMXoiLz48L3N2Zz4=");
+    background-size: 100% 100%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-input input[type="checkbox"]:checked+em {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+}
+
+.custom-input input[type="checkbox"]:checked+em:before {
+    background-color: #ffcc00;
+}
+
+.custom-input input[type="checkbox"]+em:hover {
+    border-color: #ffcc00;
+}
+
+/*自定义表单通用样式*/
+.custom-form {
+    font-size: 0;
+}
+
+.custom-form .main-title {
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.custom-form .main-title span {
+    position: relative;
+    display: inline-block;
+    color: #ffcc00;
+}
+
+.custom-form .main-title span:before {
+    content: "";
+    position: absolute;
+    right: 120%;
+    top: 50%;
+    width: 1000px;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.custom-form .main-title span:after {
+    content: "";
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    width: 1000px;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.custom-form .sub-title {
+    height: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    line-height: 40px;
+}
+
+.custom-form .sub-title span {
+    float: left;
+    height: 40px;
+    padding: 0 10px;
+    border-bottom: 1px solid #ffcc00;
+    font-size: 14px;
+    color: #ffcc00;
+}
+
+.custom-form .sub-title em {
+    font-size: 14px;
+    color: #f00;
+}
+
+.custom-form .row {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.custom-form .row.w50 {
+    width: 50%;
+}
+
+.custom-form .row.w33 {
+    width: 33.33%;
+}
+
+.custom-form .row .name {
+    float: left;
+    width: 6em;
+    padding: 10px 1em;
+    line-height: 16px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.custom-form .row .name i {
+    position: absolute;
+    margin-left: -0.6em;
+    color: #f00;
+}
+
+.custom-form .row .info-content {
+    margin-left: 6em;
+}
+
+.custom-form input {
+    vertical-align: top;
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.custom-form input:focus {
+    border-color: #ffcc00;
+}
+
+.custom-form textarea {
+    vertical-align: top;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    resize: none;
+}
+
+.custom-form textarea:focus {
+    border-color: #ffcc00;
+}
+
+.custom-form select {
+    vertical-align: top;
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.custom-form select:focus {
+    border-color: #ffcc00;
+}
+
+.custom-form .choice-area {
+    padding: 10px 0;
+    line-height: 16px;
+}
+
+.custom-form .choice-area label {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 5px 0;
+    cursor: pointer;
+}
+
+.custom-form .choice-area label input[type=radio] {
+    appearance: radio;
+    -webkit-appearance: radio;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 0;
+}
+
+.custom-form .choice-area label input[type=checkbox] {
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 0;
+}
+
+.custom-form .choice-area label span {
+    margin-left: 3px;
+}
+
+.custom-form .yzm-area {
+    position: relative;
+    width: 300px;
+}
+
+.custom-form .yzm-area input[type="text"] {
+    width: 200px;
+}
+
+.custom-form .yzm-area .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100%;
+}
+
+.custom-form .yzm-area .btn img {
+    width: 100%;
+    height: 100%;
+}
+
+.custom-form .btns-area {
+    margin-top: 20px;
+}
+
+.custom-form .btns-area .btn {
+    width: 40%;
+    font-size: 14px;
+}
+
+/*自定义select*/
+.custom-select {
+    z-index: 1;
+    position: relative;
+    width: 200px;
+}
+
+.custom-select .name {
+    position: relative;
+    height: 36px;
+    padding: 0 30px 0 10px;
+    background-color: #fff;
+    border: 1px solid #999;
+    color: #333;
+    line-height: 34px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-select .name:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.custom-select .list {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    background-color: #fff;
+    overflow-y: auto;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+    overscroll-behavior: contain;
+}
+
+.custom-select .list li a {
+    display: block;
+    padding: 10px 20px;
+    border: 1px solid #eee;
+    border-bottom: 0;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.custom-select .list li a:hover {
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+/*layer弹窗自定义皮肤*/
+body .custom-skin .layui-layer-title {
+    background: #004496;
+    color: #fff;
+}
+
+body .custom-skin .layui-layer-setwin .layui-layer-close1 {
+    filter: brightness(100);
+}
+
+body .custom-skin .layui-layer-setwin .layui-layer-close1:hover {
+    opacity: 1;
+}
+
+body .custom-skin .layui-layer-setwin .layui-layer-close2 {
+    right: -10px;
+    top: -10px;
+    background-image: none;
+}
+
+body .custom-skin .layui-layer-setwin .layui-layer-close2:after {
+    content: "×";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+body .custom-skin .layui-layer-btn .layui-layer-btn0 {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: #fff;
+}
+
+body .custom-skin .layui-layer-resize {
+    display: none;
+}
+
+/*按钮背景动效*/
+.ani-btn {
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ani-btn:after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 30%;
+    top: 100%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffcc00;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.ani-btn:hover {
+    color: #fff !important;
+    transition: 0.5s ease-in-out;
+}
+
+.ani-btn:hover:after {
+    transform: translate(-50%, -50%) scale(10);
+    transition: 1s ease-in-out;
+}
+
+/*分享栏*/
+.share-wrap {
+    font-size: 0;
+}
+
+.share-wrap .item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+    background-color: #dfe6ef;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.share-wrap .item:first-child {
+    margin-left: 0;
+}
+
+.share-wrap .item .icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    background-size: 100% 100%;
+}
+
+.share-wrap .item:hover {
+    background-color: #004496;
+}
+
+.share-wrap .item:hover .icon {
+    filter: brightness(0) invert(1);
+}
+
+.share-wrap .item.qq-btn .icon {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF5GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjAtMDgtMjhUMTE6NDk6NTkrMDg6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIwLTA4LTMxVDE2OjUwOjUwKzA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIwLTA4LTMxVDE2OjUwOjUwKzA4OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjFmNWQ3NTU1LTA3NDAtMjU0NS1hNDE5LTUzYmFkYzhhNDRjZiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3M0I5MDg0NkI5RjQxMUVBQjBFQUNDM0VFRTk1ODdBQSIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjczQjkwODQ2QjlGNDExRUFCMEVBQ0MzRUVFOTU4N0FBIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzNCOTA4NDNCOUY0MTFFQUIwRUFDQzNFRUU5NTg3QUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzNCOTA4NDRCOUY0MTFFQUIwRUFDQzNFRUU5NTg3QUEiLz4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MWY1ZDc1NTUtMDc0MC0yNTQ1LWE0MTktNTNiYWRjOGE0NGNmIiBzdEV2dDp3aGVuPSIyMDIwLTA4LTMxVDE2OjUwOjUwKzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pns/DH0AAAEwSURBVDiNrdVPKwRhHMDxz/q3Ig4KJzeRPzelnIRcSFIk5KRIDg7ehpQkJeWmvAaSg/IGHOQs5UDhpGgcZmYba3btLt/rM7/PTNM8z2SCIPCf1UBm/CBtrRnzGEYHMrjHJU7xkj8QnK2HYEqDOEZvytoCtrCCq/zFqpSBLlwUwJLXnKO/FHAHjUWwuCy2fwM7MVECFjeO7mLgkPDll1oVRoqB7WVgcS3FwLoKwGwhsF74SZTbHBrSwCUpn0EJ9USz38BqrFaAxa1FRg4cFe6OShvAVBKc/AMWN50EZ4T7cr8C6CiaHUPucNjGCVqxUSa4iwfMJp9wD0+4jcAfR1NKb9jEDZ5xmATj2vApPAt/qwkf8nZX/nnYh2VcRzf7wDteE0gWtQiwiDs8xkDmv38BXy8YMQqErXOvAAAAAElFTkSuQmCC');
+}
+
+.share-wrap .item.linkedin-btn .icon {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjxwYXRoIGQ9Ik0yNzIuNTY3IDM1Ny4xNTd2NTY2LjI3Mkg4NC4wMDVWMzU3LjE1N2gxODguNTYyem0xMS45OTUtMTc0Ljg4NWMuNTg1IDU0LjI3Mi00MC41NTcgOTcuNzE5LTEwNi4yNzYgOTcuNzE5aC0xLjEzNGMtNjMuNDE1IDAtMTA0LjAxLTQzLjQ0Ny0xMDQuMDEtOTcuNzE5IDAtNTUuNDQyIDQyLjI3Ny05Ny43MTkgMTA2LjI3Ny05Ny43MTkgNjQuNTg2IDAgMTA0LjU1OCA0Mi4yNzcgMTA1LjE0MyA5Ny43MTl6bTY2Ni4yOTUgNDE2LjU4NVY5MjMuNDNINzYyLjg0M1Y2MjAuNThjMC03NS45OTYtMjcuNDI4LTEyOC05NS40MTQtMTI4LTUyLjAwNSAwLTgyLjg3MSAzNC44NTItOTYuNTg2IDY4LjU3MS00LjU3MSAxMi41OC02LjI5IDI5LjE0Ny02LjI5IDQ2LjN2MzE2LjAxM0gzNzYuNTRjMi4zMDQtNTEzLjEzNCAwLTU2Ni4yNzIgMC01NjYuMjcyaDE4OC4wMTR2ODIuMjg2aC0xLjEzNGMyNC41NzYtMzguODM5IDY5LjE1Ny05NS40MTUgMTcwLjg2Mi05NS40MTUgMTI0LjAxNCAwIDIxNi41NzYgODEuMTUyIDIxNi41NzYgMjU0Ljg2NnoiIGZpbGw9IiMyNTQ1OTYiLz48L3N2Zz4=');
+}
+
+.share-wrap .item.twitter-btn .icon {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjxwYXRoIGQ9Ik05NjIuMjY3IDIzMy4xOHEtMzguMjUzIDU2LjAyNy05Mi41OTggOTUuNDUuNTg1IDcuOTczLjU4NSAyMy45OTIgMCA3NC4zMTMtMjEuNzI0IDE0OC4yNnQtNjUuOTc1IDE0MS45Ny0xMDUuMzk4IDEyMC4zMlQ1MjkuNyA4NDYuNjN0LTE4NC41NCAzMS4xNThxLTE1NC44NDMgMC0yODMuNDI4LTgyLjg3IDE5Ljk2OCAyLjI2NyA0NC41NDQgMi4yNjcgMTI4LjU4NSAwIDIyOS4xNTYtNzguODQ4LTU5Ljk3Ny0xLjE3LTEwNy40NDctMzYuODY0dC02NS4xNy05MS4xMzZxMTguODcgMi44NTMgMzQuODkgMi44NTMgMjQuNTc1IDAgNDguNTY2LTYuMjktNjQtMTMuMTY2LTEwNS45ODQtNjMuNzA4VDk4LjMwNCA0MDUuNzk3di0yLjI2OHEzOC44MzkgMjEuNzI0IDgzLjQ1NiAyMy40MDYtMzcuNzQyLTI1LjE2MS01OS45NzctNjUuNjgydC0yMi4zMDktODcuOTkxcTAtNTAuMzIzIDI1LjE2MS05My4xMTEgNjkuMTIgODUuMTM4IDE2OC4zMDIgMTM2LjI2NXQyMTIuMjYgNTYuODMycS00LjUzNC0yMS43MjMtNC41MzQtNDIuMjc3IDAtNzYuNTggNTMuOTgtMTMwLjU2dDEzMC41Ni01My45NzlxODAuMDE4IDAgMTM0Ljg3NSA1OC4yOTUgNjIuMzE3LTExLjk5NiAxMTcuMTc1LTQ0LjU0NC0yMS4xMzkgNjUuNjgyLTgxLjExNiAxMDEuNzQyIDUzLjE3NS01LjcwNiAxMDYuMjc3LTI4LjZ6IiBmaWxsPSIjMDA0NDk2Ii8+PC9zdmc+');
+}
+
+.share-wrap .item.youtube-btn .icon {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjxwYXRoIGQ9Ik05MTIuNjQgMTcxLjUyYTEyOS4wNjcgMTI5LjA2NyAwIDAgMSA5MC4yODMgOTEuMzA3YzIxLjkzIDgxLjA2NiAyMS4wNzcgMjUwLjAyNiAyMS4wNzcgMjUwLjAyNnMwIDE2OC4xMDctMjEuMDc3IDI0OS4xNzRhMTI5LjA2NyAxMjkuMDY3IDAgMCAxLTkwLjI4MyA5MS4zMDZDODMyLjUxMiA4NzQuNjY3IDUxMiA4NzQuNjY3IDUxMiA4NzQuNjY3cy0zMTkuNzAxIDAtNDAwLjY0LTIyLjE4N2ExMjkuMDY3IDEyOS4wNjcgMCAwIDEtOTAuMjgzLTkxLjMwN0MwIDY4MC45NiAwIDUxMiAwIDUxMnMwLTE2OC4xMDcgMjEuMDc3LTI0OS4xNzNjMTEuODE5LTQ0LjM3NCA0Ny4yMzItODAuMjE0IDkwLjI4My05Mi4xNkMxOTEuNDg4IDE0OS4zMzMgNTEyIDE0OS4zMzMgNTEyIDE0OS4zMzNzMzIwLjU1NSAwIDQwMC42ODMgMjIuMTg3ek02NzYuNDggNTEyTDQwOS45NDEgMzY3Ljc4N3YyODguNDI2TDY3Ni40OCA1MTJ6IiBmaWxsPSIjMDA0NDk2Ii8+PC9zdmc+');
+}
